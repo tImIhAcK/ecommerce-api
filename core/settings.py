@@ -13,12 +13,12 @@ SECRET_KEY = 'django-insecure-ruq!(&00z*hdd2z_%1ztxljxq*p_*-kf)tdu=()tyv)&xfpw%r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+CSRF_TRUSTED_ORIGINS = ['*']
+ALLOWED_HOSTS = ['*']
 
-
+AUTH_USER_MODEL = 'accounts.User'
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -28,10 +28,20 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'rest_framework',
+    'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
+    'rest_framework.authtoken',
     'djoser',
     'django-filter',
+    "phonenumber_field",
+    'drf_yasg',
+    
     
     'accounts',
+
+
+    
+    
 ]
 
 MIDDLEWARE = [
